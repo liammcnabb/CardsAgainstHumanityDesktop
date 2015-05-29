@@ -8,11 +8,13 @@ public class Blank extends Answer {
 
     final private Color CARD_COLOR = Color.WHITE;
     final private Color TEXT_COLOR = Color.BLACK;
+    final private String TYPE = "Answer";
 
     public Blank() {
-        super("");
+        super("_______________");
         super.setCardColor(CARD_COLOR);
         super.setTextColor(TEXT_COLOR);
+        super.setCardType(TYPE);
     }
 
 }

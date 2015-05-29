@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Liam
@@ -8,14 +9,14 @@ public class MainInterface extends JFrame {
 
     final private String LOOK_AND_FEEL = "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel";
     final private String CLASS_ID = "CLASS:MainInterface, ";
-    final private int WIDTH = 800;
-    final private int HEIGHT = 800;
-
+    final private int WIDTH = 1000;
+    final private int HEIGHT = 600;
     final private String ERROR_BUILD_FRAME = "There seems to be a problem with creating the frame, closing.";
-
-    private JFrame mainFrame = new JFrame();
     private String METHOD_ID;
     private String PREVIOUS_METHOD_ID;
+    private JFrame mainFrame = new JFrame();
+    private JToolBar toolbar;
+    private JButton analyseDeckButton, newGameButton, loadDeckButton, settingsButton, editDeckButton, deleteDeckButton;
 
     /**
      * Constructor used to initialise the interface
@@ -44,7 +45,58 @@ public class MainInterface extends JFrame {
         getMainFrame().setSize(WIDTH, HEIGHT);
         getMainFrame().setResizable(false);
 
+        createToolbar();
+
+
+
+
+
+
         setMETHOD_ID(getPREVIOUS_METHOD_ID());
+        return true;
+    }
+
+    /**
+     * creates the toolbar for the top
+     *
+     * @return boolean to signify if a problem occurs
+     */
+    private boolean createToolbar() {
+        toolbar = new JToolBar();
+        newGameButton = new JButton(new ImageIcon(
+                getClass().getResource("img/NewGame.png")));
+        //TODO Add Context
+        toolbar.add(newGameButton);
+
+        settingsButton = new JButton(new ImageIcon(
+                getClass().getResource("img/Settings.png")));
+        //TODO Add Context
+        toolbar.add(settingsButton);
+        toolbar.addSeparator();
+
+        loadDeckButton = new JButton(new ImageIcon(
+                getClass().getResource("img/NewDeck.png")));
+        //TODO Add Context
+        toolbar.add(loadDeckButton);
+
+        editDeckButton = new JButton(new ImageIcon(
+                getClass().getResource("img/EditDeck.png")));
+        //TODO Add Context
+        toolbar.add(editDeckButton);
+
+        deleteDeckButton = new JButton(new ImageIcon(
+                getClass().getResource("img/DeleteDeck.png")));
+        //TODO Add Context
+        toolbar.add(deleteDeckButton);
+
+        analyseDeckButton = new JButton(new ImageIcon(
+                getClass().getResource("img/AnalyseDeck.png")));
+        //TODO Add Context
+        toolbar.add(analyseDeckButton);
+
+        add(toolbar, BorderLayout.NORTH);
+        toolbar.setFloatable(false);
+
         return true;
     }
 
